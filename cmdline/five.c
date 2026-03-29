@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     }
 
     char ch;
-    while ((ch = fgetc(fp)) != EOF) {
+    while (fscanf(fp, "%c", &ch) != EOF) {
         printf("%c", ch);
     }
 

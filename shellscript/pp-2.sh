@@ -18,7 +18,7 @@ search_process () {
     if [[ -z "$pname" ]]; then
         echo "Process name cannot be empty."
     else
-        ps aux | grep "$pname" | grep -v grep
+        ps aux | grep "$pname"
     fi
 }
 

@@ -18,8 +18,8 @@ int main () {
     if (pid == 0) {
         char s[100];
         printf("The absolute path of the working directory:\n");
-        execlp("realpath", "realpath", ".", NULL);
-        perror("execlp realpath"); 
+        execlp("pwd", "pwd", NULL);
+        perror("execlp pwd"); 
         exit(EXIT_FAILURE);
     } else {
         wait(NULL);

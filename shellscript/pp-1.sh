@@ -52,7 +52,7 @@ mark_task () {
     read -p "Are you sure? (y/n): " ans
 
     if [ "$ans" = "y" ]; then 
-    grep -vF "$name" tasks.txt > temp.txt
+        grep -vF "$name" tasks.txt > temp.txt
         mv temp.txt tasks.txt 
     fi
 
