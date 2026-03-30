@@ -4,7 +4,7 @@
 # If the word is not found, the function should print: "Word not found in the file."
 # The script should call this function after reading input from the user.
 
-#! /bin/bash
+#!/bin/bash
 
 search_word () {
     local word="$1"
