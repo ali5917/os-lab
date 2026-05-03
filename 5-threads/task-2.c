@@ -36,16 +36,16 @@ int main () {
 
     pthread_t threads[numThreads];
     threadArgs args[numThreads];
-    int ordersPerThread = totalOrders / numThreads;
+    int chunk = totalOrders / numThreads;
     int extra = totalOrders % numThreads;
 
     for (int i = 0; i < numThreads; i++) {
-        int start = i * ordersPerThread;
+        int start = i * chunk;
         int end;
         if (i == numThreads - 1) {
-            end = start + ordersPerThread + extra;
+            end = ((i + 1) * chunk) + extra;
         } else {
-            end = start + ordersPerThread;
+            end = (i + 1) * chunk;
         }
 
         args[i].orders = orders;

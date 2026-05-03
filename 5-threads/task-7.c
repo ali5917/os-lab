@@ -1,3 +1,8 @@
+// Each file should be assigned to a separate thread, which
+// reads the file and counts the words. The main thread will collect the word
+// counts from all threads and display the results for each file as well as the
+// total word count across all files.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

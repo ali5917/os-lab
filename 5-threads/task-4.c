@@ -38,6 +38,7 @@ void* findInstances(void* arg) {
 			data->instances++;
 		}
 	}
+	
 	close(fd);
 	free(str);
 	pthread_exit(NULL);
@@ -56,8 +57,8 @@ int main() {
 	int fileSize = lseek(fd, 0, SEEK_END);
 	lseek(fd, 0, SEEK_SET);
 
-	int segmentSize = fileSize / NUMTHREADS;
-	int remainder = fileSize % NUMTHREADS;
+	int chunk = fileSize / NUMTHREADS;
+	int extra = fileSize % NUMTHREADS;
 
 	int k = strlen(keyword);
 
@@ -65,13 +66,13 @@ int main() {
 	pthread_t threads[NUMTHREADS];
 
 	for(int i = 0; i < NUMTHREADS; i++) {
-		int startByte = i * segmentSize;
-		int endByte = (i + 1) * segmentSize;
+		int startByte = i * chunk;
+		int endByte = (i + 1) * chunk;
 
 		if (i != NUMTHREADS - 1) {
 			endByte += k;
 		} else {
-			endByte += remainder;
+			endByte += extra;
 		}
 
 		data[i].filename = filename;

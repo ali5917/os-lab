@@ -1,2 +1,2 @@
 # os-lab
-Mid term content 
+OS Course Lab Content 
