@@ -32,15 +32,17 @@ void *countLines(void *arg) {
     
     lseek(fd, data->start_byte, SEEK_SET);
 
+    long pos = data->start_byte;
+    
     // skip partial line if not first thread
-    if (data->start != 0) {
+    if (data->start_byte != 0) {
         while (read(fd, &ch, 1) > 0 && ch != '\n') {
             pos++;
         }
     }
 
     // start counting full lines 
-    while (pos < data->end && read(fd, &ch, 1) > 0) {
+    while (pos < data->end_byte && read(fd, &ch, 1) > 0) {
         if (ch == '\n') {
             count++;
         }

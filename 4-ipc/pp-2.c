@@ -1,7 +1,7 @@
 // Create a C program named numbercopy.c that transfers data between processes using a pipe. 
 // The program takes two arguments: 
-    // an input file containing a list of numbers 
-    // an output file where the numbers will be copied. 
+//      an input file containing a list of numbers 
+//      an output file where the numbers will be copied. 
 // The parent process reads the numbers from the input file and writes them to the pipe
 // The child process retrieves the numbers from the pipe and writes them to the output file. 
 // Ensure proper error handling.

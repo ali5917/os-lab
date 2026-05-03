@@ -1,6 +1,6 @@
 // POSIX Mutexes & Semaphores Syntax & Notes
 
-// Compilation: gcc yourprogram.c -o yourprogram -pthread
+// Compilation: gcc yourprogram.c -o yourprogram -lpthread
 
 // 1. Mutexes (Mutual Exclusion)
 // Used to prevent race conditions when multiple threads access shared resources.

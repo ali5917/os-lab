@@ -8,7 +8,7 @@
 #include <fcntl.h>
 
 int main() {
-    int fd[2];                  // fd[0] = read end, fd[1] = write end
+    int fd[2];                          // fd[0] = read end, fd[1] = write end
     pid_t pid;
     char write_msg[] = "Hello from parent!";
     char read_msg[100];

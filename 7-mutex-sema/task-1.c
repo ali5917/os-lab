@@ -76,7 +76,7 @@ void *writer(void *arg) {
     pthread_exit(0);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     printf("\nUniversity Digital Library (Reader-Writer Simulation)\n");
     printf("Readers: %d   Writers: %d   Database start: 0\n\n", numReaders, numWriters);
 
