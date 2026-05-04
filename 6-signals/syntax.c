@@ -55,14 +55,15 @@ void sa_handler_func(int signum) {
 
 int main_modern() {
     struct sigaction sa;
-    
     sa.sa_handler = sa_handler_func;
     sigemptyset(&sa.sa_mask);    // while handling this signal, don’t block any additional signals.
     sa.sa_flags = SA_RESTART;    // restart interrupted reads/waits automatically
 
     sigaction(SIGINT, &sa, NULL);
 
-    while(1) { sleep(1); }
+    while(1) { 
+        sleep(1); 
+    }
     return 0;
 }
 
@@ -72,7 +73,6 @@ int main_modern() {
 // -----------------------------------------------------------------------------
 // | FEATURE                | signal()               | sigaction()             |
 // -------------------------|------------------------|--------------------------
-// | Syntax                 | 1 line                 | 4 lines + struct        |  
 // | Reliability            | Unpredictable          | Reliable/POSIX Standard |
 // | Handler Reset?         | Sometimes (System V)   | No (Stays registered)   |
 // | Block other signals?   | No control             | Yes (via sa_mask)       |
@@ -120,3 +120,26 @@ pthread_sigmask(SIG_BLOCK, &mask, NULL); // 3. Tell the OS to block signals in t
 // - Once you UNBLOCK it, the signal immediately fires.
 // - pthread_sigmask() allows one specific thread to decide which signals 
 //   it is willing to be interrupted by.
+
+// To get PID
+ps aux | grep task-2
+
+// To send SIGUSR1 (Custom User Signal 1)
+through terminal: kill -USR1 1234
+through code:     kill(pid, SIGUSR1)
+
+// To send SIGINT (Interrupt from keyboard / Ctrl+C)
+through terminal: kill -INT 1234
+through code:     kill(pid, SIGINT)
+
+// To send SIGTERM (Graceful Termination Request)
+through terminal: kill -TERM 1234
+through code:     kill(pid, SIGTERM)
+
+// To send SIGALRM (Alarm/Timer signal)
+through terminal: kill -ALRM 1234
+through code:     kill(pid, SIGALRM)
+
+// To send SIGCHLD (Sent to parent when child stops/exits)
+through terminal: kill -CHLD 1234
+through code:     kill(pid, SIGCHLD)

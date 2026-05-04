@@ -1,4 +1,3 @@
-
 // SIGINT handling, instead of terminating immediately, the program should:
 // Print "Interrupt signal received!"
 // Ask the user whether they really want to exit (Y/N)
