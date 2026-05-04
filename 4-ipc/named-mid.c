@@ -16,8 +16,8 @@
 #include <string.h>
 
 // Named pipes
-#define PIPE1 "pipe1"
-#define PIPE2 "pipe2"
+#define PIPE1 "/tmp/pipe1"
+#define PIPE2 "/tmp/pipe2"
 
 // Function to convert score to grade (FAST-NUCES scheme)
 void getGrade(int score, char *grade) {
