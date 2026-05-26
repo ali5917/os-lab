@@ -1,4 +1,4 @@
-# OS Lab
+# OS Lab - Fast NU Semester 4 - Spring 26
 
 Implementations of fundamental Operating Systems concepts and system programming.
 
